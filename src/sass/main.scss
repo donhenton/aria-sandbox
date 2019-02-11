@@ -1,0 +1,43 @@
+@import "_reset.scss";
+@import "_mixins.scss";
+@import "fontawesome/font-awesome.scss";    //https://fontawesome.com/v4.7.0/icons/s
+
+
+
+body,
+html {
+    margin: 20px;
+    padding: 20px;
+
+}
+
+.main-page {
+
+    .ul-list {
+        margin-left: 20px;
+        li {
+            margin-top: 15px;
+            margin-left: 20px;
+            list-style-type: circle;
+            a {
+                text-decoration: none;
+                color: cadetblue;
+                &:visited {
+                    color: cadetblue;
+                }
+            }
+
+        }
+
+    }
+    
+    font-size: 20px;
+    
+    h1 {
+        font-size: 45px;
+        margin-bottom: 20px;
+        
+    }
+
+}
+
