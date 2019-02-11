@@ -1,0 +1,10 @@
+{
+    "name": "aria-sandbox",
+    "version": "1.0.0",
+    "keywords": [
+	"util", "functional", "server", "client", "browser"
+    ],
+    "contributors": [
+    ],
+    "dependencies": { }
+}
