@@ -1,13 +1,16 @@
-@import "_reset.scss";
+@import "components/reset.scss";
 @import "_mixins.scss";
 @import "fontawesome/font-awesome.scss";    //https://fontawesome.com/v4.7.0/icons/s
-
+@import "components/typography";
+@import "components/modular";
+@import "components/tables";
+@import "components/buttons";
 
 
 body,
 html {
-    margin: 20px;
-    padding: 20px;
+    margin: 10px;
+    padding: 10px;
 
 }
 

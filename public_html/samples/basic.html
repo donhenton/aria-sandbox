@@ -1,18 +1,103 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
+
+<html lang="en">
     <head>
-        <title>TODO supply a title</title>
+        <title>Simple Form</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <a href="../../src/sass/main.scss"></a>
+        <link href="../css/main.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-           <p> <a href="../index.html">Back Home</a> </p>
-        <div>TODO write content</div>
+        <div class="main-page">
+            <div class="row grouping">
+                <div class="columnLeft"><h1>Accessibility Demonstration</h1></div>
+                <div class="columnRight"><a href="../index.html">Back Home</a></div>
+            </div>
+
+
+            <div class="row grouping">
+                <h2>Simple Form Demonstration</h2>
+
+            </div>
+
+
+
+
+            <div class="row">
+                <div class="columnLeft">
+                    <form   action="/" method="get" class="form" id="testform">
+                        <table class="table table-striped">
+                            <tr>
+                                <th><label for="name">Name</label></th>
+                                <td><input type="text" size="40" id="name" name="name" ></td>
+                            </tr>
+                            <tr>
+                                <th> <label for="party">Party</label> </th>
+                                <td>
+                                    <fieldset id="party">
+                                        <label for="democrat">Democrat</label> 
+                                        <input type="radio" id="democrat" value="Democrat" name="party" >
+
+
+                                        <label for="republican">Republican</label> 
+                                        <input type="radio" id="republican" value="Republican" name="party" >
+
+
+                                        <label for="communist">Communist</label> 
+                                        <input type="radio" id="communist" value="Communist" name="party" >
+                                    </fieldset>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th> <label for="donation">Donation</label> </th>
+                                <td>
+                                    <fieldset id="donation">
+                                        <label id="fifty_label" for="fify">$50</label> 
+                                        <input type="checkbox" id="fifty" value="50" name="donation" >
+
+
+                                        <label id=one_hundred_label" for="one-hundred">$100</label> 
+                                        <input type="checkbox" id="one-hundred" value="100" name="donation" >
+
+
+                                        <label id="two_thousand_label" for="two-thousand">$2000</label> 
+                                        <input type="checkbox" id="two-thousand" value="2000" name="donation" >
+                                    </fieldset>
+                                </td>
+
+                            </tr>
+
+                            <tr>
+                                <th> <label for="subscription">Subscription</label> </th>
+                                <td>
+                                    <select id="subscription" name="subscription">
+                                        
+                                        <option value="nytimes">NY Times</option>
+                                        <option value="wapo">Washington Post</option>
+                                        <option value="latimes">Los Angeles Times</option>
+                                        <option value="nypost">NY Post</option>
+                                        
+                                        
+                                    </select>
+                                        
+                                     
+                                </td>
+
+                            </tr>
+                             <tr>
+                                 <td colspan="2"><input type="submit" class="btn btn-primary" value="Submit"> </td>
+                        </tr>
+                        </table>
+
+
+                    </form>
+                </div>
+            </div>
+
+
+
+
+        </div>
+
     </body>
 </html>
