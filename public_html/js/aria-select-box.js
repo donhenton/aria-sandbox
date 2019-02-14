@@ -10,13 +10,12 @@ class AriaSelectBox {
   registerEvents() {
     this.button.addEventListener('click', this.showListbox.bind(this));
     this.button.addEventListener('keyup', this.checkShow.bind(this));
-   
+
     this.listbox.listboxNode.addEventListener('blur', this.hideListbox.bind(this));
     this.listbox.listboxNode.addEventListener('keydown', this.checkHide.bind(this));
     this.listbox.setHandleFocusChange(this.onFocusChange.bind(this));
   }
-  ;
-        checkShow(evt) {
+  checkShow(evt) {
     var key = evt.which || evt.keyCode;
 
     switch (key) {
