@@ -10,7 +10,7 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="../css/main.css" rel="stylesheet" type="text/css"/>
-<!--        <link href="css/w3listbox.css" rel="stylesheet" type="text/css"/> -->
+        <link href="css/w3listbox.css" rel="stylesheet" type="text/css"/>  
     </head>
     <body>
 
@@ -61,19 +61,19 @@ and open the template in the editor.
                 <h3 id="list-label">List Box With Aria Support</h3>
             </div>
             <div class="demo-width">
-                <div class="aria dropdown-container">
+                <div class="aria select-box">
                     <button  aria-haspopup="listbox" aria-labelledby="list-label list-button" id="list_button" class="dropdown-button">gamma</button>
-                    <ul class="listbox" tabindex="-1" role="listbox" aria-labelledby="list-label">
-                        <li class="listbox-item" role="option">alpha</li>
-                        <li class="listbox-item" role="option">beta</li>
-                        <li class="listbox-item" role="option">gamma</li>
-                        <li class="listbox-item" role="option">rho</li>
-                        <li class="listbox-item" role="option">theta</li>
-                        <li class="listbox-item" role="option">epsilon</li>
-                        <li class="listbox-item" role="option">eta</li>
-                        <li class="listbox-item" role="option">sigma</li>
-                        <li class="listbox-item" role="option">omega</li>
-                        <li class="listbox-item" role="option">tau</li>
+                    <ul class="listbox hidden" tabindex="-1" role="listbox" aria-labelledby="list-label">
+                        <li id="greek_alpha" class="listbox-item" role="option">alpha</li>
+                        <li id="greek_beta" class="listbox-item" role="option">beta</li>
+                        <li id="greek_gamma" class="listbox-item" role="option">gamma</li>
+                        <li id="greek_rho"  class="listbox-item" role="option">rho</li>
+                        <li id="greek_theta"  class="listbox-item" role="option">theta</li>
+                        <li id="greek_epsilon"  class="listbox-item" role="option">epsilon</li>
+                        <li id="greek_eta"  class="listbox-item" role="option">eta</li>
+                        <li id="greek_sigma"  class="listbox-item" role="option">sigma</li>
+                        <li id="greek_omega"  class="listbox-item" role="option">omega</li>
+                        <li id="greek_tau" class="listbox-item" role="option">tau</li>
                     </ul>
 
                 </div>
@@ -83,8 +83,10 @@ and open the template in the editor.
 
 
 
-        <script src="js/support/ariaUtils.js" type="text/javascript"></script>
+<!--        <script src="js/support/ariaUtils.js" type="text/javascript"></script>
         <script src="js/listbox.js" type="text/javascript"></script>
-        <script src="js/listbox-collapsible.js" type="text/javascript"></script>
+        <script src="js/listbox-collapsible.js" type="text/javascript"></script>-->
+        <script src="../js/aria-listbox.js" type="text/javascript"></script>
+        <script src="../js/aria-select-box.js" type="text/javascript"></script>
     </body>
 </html>
