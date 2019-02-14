@@ -139,6 +139,7 @@ button[aria-disabled="true"] {
   position: absolute;
   margin: 0;
   width: 148px;
+  z-index: 500;
 }
 
 .hidden {

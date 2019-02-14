@@ -1,0 +1,122 @@
+.aria {
+
+    $dropdown-width: 200px;
+
+
+
+    button {
+        &.dropdown-button {
+
+            border-radius: 0;
+            font-size: 16px;
+            text-align: left;
+            padding: 5px 10px;
+            width: $dropdown-width;
+            position: relative;
+
+
+
+            &::after {
+                width: 0;
+                height: 0;
+                border-left: 8px solid transparent;
+                border-right: 8px solid transparent;
+                border-top: 8px solid #aaa;
+                content: " ";
+                position: absolute;
+                right: 5px;
+                top: 10px;
+            }
+
+            &[aria-expanded="true"]::after {
+                width: 0;
+                height: 0;
+                border-left: 8px solid transparent;
+                border-right: 8px solid transparent;
+                border-top: 0;
+                border-bottom: 8px solid #aaa;
+                content: " ";
+                position: absolute;
+                right: 5px;
+                top: 10px;
+            }
+
+
+
+
+
+
+        }
+    }
+
+
+
+
+
+
+    &.dropdown-container {
+        width: 100%;
+        position: relative;
+
+    }
+
+    .listbox  {
+        min-height: 2em;
+        padding: 0;
+        background: #ffffee;
+        border: 1px solid #aaa;
+        border-top: 0;
+        max-height: 8em;
+        overflow-y: auto;
+        position: absolute;
+        margin: 0;
+        width: $dropdown-width;
+         
+
+
+
+        .listbox-item  {
+            display: block;
+            padding: 0 1em 0 1.5em;
+            position: relative;
+            line-height: 1.8em;
+            font-size: 1.2rem;
+            border-bottom: 1px solid  #aaa;
+        }
+    }
+
+    [role="option"].focused {
+        background: #bde4ff;
+    }
+
+
+    [role="option"][aria-selected="true"]::before {
+        font-family: FontAwesome;
+        content: '\f00c \00a0 ';
+        position: absolute;
+        left: 0.5em;
+    }
+
+
+}
+
+
+
+.offscreen {
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+    font-size: 14px;
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+
+
+
+
+.demo-width {
+    width: 33%;
+}
