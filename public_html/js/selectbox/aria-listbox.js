@@ -74,7 +74,7 @@ class AriaListBox {
     if (firstItem) {
       this.focusItem(firstItem);
     }
-  } 
+  }
   /**
    * @desc
    *  Handle various keyboard controls; UP/DOWN will shift focus; SPACE selects
@@ -192,158 +192,191 @@ class AriaListBox {
         break;
     }
   }
-  
   /**
- * @desc
- *  Check if an item is clicked on. If so, focus on it and select it.
- *
- * @param evt
- *  The click event object
- */
-checkClickItem(evt) {
-  if (evt.target.getAttribute('role') === 'option') {
-    this.focusItem(evt.target);
-    this.toggleSelectItem(evt.target);
-  }
-} 
-  
-/**
- * @desc
- *  Focus on the last option
- */
-focusLastItem () {
-  var itemList = this.listboxNode.querySelectorAll('[role="option"]');
-
-  if (itemList.length) {
-    this.focusItem(itemList[itemList.length - 1]);
-  }
-};  
-  
-/**
- * @desc
- *  Defocus the specified item
- *
- * @param element
- *  The element to defocus
- */
-defocusItem (element) {
-  if (!element) {
-    return;
-  }
-  if (!this.multiselectable) {
-    element.removeAttribute('aria-selected');
-  }
-  //aria.Utils.removeClass(element, 'focused');
-  element.classList.remove('focused');
-};
-
-/**
- * @desc
- *  Focus on the specified item
- *
- * @param element
- *  The element to focus
- */
-focusItem (element) {
-  this.defocusItem(document.getElementById(this.activeDescendant));
-  if (!this.multiselectable) {
-    element.setAttribute('aria-selected', 'true');
-  }
- // aria.Utils.addClass(element, 'focused');
-  element.classList.add('focused');
-  
-  this.listboxNode.setAttribute('aria-activedescendant', element.id);
-  this.activeDescendant = element.id;
-
-  if (this.listboxNode.scrollHeight > this.listboxNode.clientHeight) {
-    var scrollBottom = this.listboxNode.clientHeight + this.listboxNode.scrollTop;
-    var elementBottom = element.offsetTop + element.offsetHeight;
-    if (elementBottom > scrollBottom) {
-      this.listboxNode.scrollTop = elementBottom - this.listboxNode.clientHeight;
-    }
-    else if (element.offsetTop < this.listboxNode.scrollTop) {
-      this.listboxNode.scrollTop = element.offsetTop;
+   * @desc
+   *  Check if an item is clicked on. If so, focus on it and select it.
+   *
+   * @param evt
+   *  The click event object
+   */
+  checkClickItem(evt) {
+    if (evt.target.getAttribute('role') === 'option') {
+      this.focusItem(evt.target);
+      this.toggleSelectItem(evt.target);
     }
   }
+  /**
+   * @desc
+   *  Focus on the last option
+   */
+  focusLastItem() {
+    var itemList = this.listboxNode.querySelectorAll('[role="option"]');
 
-  if (!this.multiselectable && this.moveButton) {
-    this.moveButton.setAttribute('aria-disabled', false);
-  }
-
-  this.checkUpDownButtons();
-  this.handleFocusChange(element);
-} 
-  
- /**
- * @desc
- *  Enable/disable the up/down arrows based on the activeDescendant.
- */
- checkUpDownButtons () {
-  var activeElement = document.getElementById(this.activeDescendant);
-
-  if (!this.moveUpDownEnabled) {
-    return false;
-  }
-
-  if (!activeElement) {
-    this.upButton.setAttribute('aria-disabled', 'true');
-    this.downButton.setAttribute('aria-disabled', 'true');
-    return;
-  }
-
-  if (this.upButton) {
-    if (activeElement.previousElementSibling) {
-      this.upButton.setAttribute('aria-disabled', false);
+    if (itemList.length) {
+      this.focusItem(itemList[itemList.length - 1]);
     }
-    else {
+  }
+  /**
+   * @desc
+   *  Defocus the specified item
+   *
+   * @param element
+   *  The element to defocus
+   */
+  defocusItem(element) {
+    if (!element) {
+      return;
+    }
+    if (!this.multiselectable) {
+      element.removeAttribute('aria-selected');
+    }
+    //aria.Utils.removeClass(element, 'focused');
+    element.classList.remove('focused');
+  }
+  /**
+   * @desc
+   *  Focus on the specified item
+   *
+   * @param element
+   *  The element to focus
+   */
+  focusItem(element) {
+    this.defocusItem(document.getElementById(this.activeDescendant));
+    if (!this.multiselectable) {
+      element.setAttribute('aria-selected', 'true');
+    }
+    // aria.Utils.addClass(element, 'focused');
+    element.classList.add('focused');
+
+    this.listboxNode.setAttribute('aria-activedescendant', element.id);
+    this.activeDescendant = element.id;
+
+    if (this.listboxNode.scrollHeight > this.listboxNode.clientHeight) {
+      var scrollBottom = this.listboxNode.clientHeight + this.listboxNode.scrollTop;
+      var elementBottom = element.offsetTop + element.offsetHeight;
+      if (elementBottom > scrollBottom) {
+        this.listboxNode.scrollTop = elementBottom - this.listboxNode.clientHeight;
+      } else if (element.offsetTop < this.listboxNode.scrollTop) {
+        this.listboxNode.scrollTop = element.offsetTop;
+      }
+    }
+
+    if (!this.multiselectable && this.moveButton) {
+      this.moveButton.setAttribute('aria-disabled', false);
+    }
+
+    this.checkUpDownButtons();
+    this.handleFocusChange(element);
+  }
+  /**
+   * @desc
+   *  Enable/disable the up/down arrows based on the activeDescendant.
+   */
+  checkUpDownButtons() {
+    var activeElement = document.getElementById(this.activeDescendant);
+
+    if (!this.moveUpDownEnabled) {
+      return false;
+    }
+
+    if (!activeElement) {
       this.upButton.setAttribute('aria-disabled', 'true');
-    }
-  }
-
-  if (this.downButton) {
-    if (activeElement.nextElementSibling) {
-      this.downButton.setAttribute('aria-disabled', false);
-    }
-    else {
       this.downButton.setAttribute('aria-disabled', 'true');
+      return;
     }
-  }
-}   
-   
-/**
- * @desc
- *  Toggle the aria-selected value
- *
- * @param element
- *  The element to select
- */
-toggleSelectItem  (element) {
-  if (this.multiselectable) {
-    element.setAttribute(
-      'aria-selected',
-      element.getAttribute('aria-selected') === 'true' ? 'false' : 'true'
-    );
 
-    if (this.moveButton) {
-      if (this.listboxNode.querySelector('[aria-selected="true"]')) {
-        this.moveButton.setAttribute('aria-disabled', 'false');
+    if (this.upButton) {
+      if (activeElement.previousElementSibling) {
+        this.upButton.setAttribute('aria-disabled', false);
+      } else {
+        this.upButton.setAttribute('aria-disabled', 'true');
       }
-      else {
-        this.moveButton.setAttribute('aria-disabled', 'true');
+    }
+
+    if (this.downButton) {
+      if (activeElement.nextElementSibling) {
+        this.downButton.setAttribute('aria-disabled', false);
+      } else {
+        this.downButton.setAttribute('aria-disabled', 'true');
       }
     }
   }
-}; 
+  /**
+   * @desc
+   *  Toggle the aria-selected value
+   *
+   * @param element
+   *  The element to select
+   */
+  toggleSelectItem(element) {
+    if (this.multiselectable) {
+      element.setAttribute(
+            'aria-selected',
+            element.getAttribute('aria-selected') === 'true' ? 'false' : 'true'
+            );
 
+      if (this.moveButton) {
+        if (this.listboxNode.querySelector('[aria-selected="true"]')) {
+          this.moveButton.setAttribute('aria-disabled', 'false');
+        } else {
+          this.moveButton.setAttribute('aria-disabled', 'true');
+        }
+      }
+    }
+  }
+  setHandleItemChange(handlerFn) {
+    this.handleItemChange = handlerFn;
+  }
+  setHandleFocusChange(focusChangeHandler) {
+    this.handleFocusChange = focusChangeHandler;
+  }
+  findItemToFocus(key) {
+    var itemList = this.listboxNode.querySelectorAll('[role="option"]');
+    var character = String.fromCharCode(key);
 
+    if (!this.keysSoFar) {
+      for (var i = 0; i < itemList.length; i++) {
+        if (itemList[i].getAttribute('id') == this.activeDescendant) {
+          this.searchIndex = i;
+        }
+      }
+    }
+    this.keysSoFar += character;
+    this.clearKeysSoFarAfterDelay();
 
-setHandleItemChange(handlerFn) {
-  this.handleItemChange = handlerFn;
-};
-
-setHandleFocusChange (focusChangeHandler) {
-  this.handleFocusChange = focusChangeHandler;
-};
-   
-   
+    var nextMatch = this.findMatchInRange(
+          itemList,
+          this.searchIndex + 1,
+          itemList.length
+          );
+    if (!nextMatch) {
+      nextMatch = this.findMatchInRange(
+            itemList,
+            0,
+            this.searchIndex
+            );
+    }
+    return nextMatch;
+  }
+  clearKeysSoFarAfterDelay() {
+    if (this.keyClear) {
+      clearTimeout(this.keyClear);
+      this.keyClear = null;
+    }
+    this.keyClear = setTimeout((function () {
+      this.keysSoFar = '';
+      this.keyClear = null;
+    }).bind(this), 500);
+  }
+  findMatchInRange(list, startIndex, endIndex) {
+    // Find the first item starting with the keysSoFar substring, searching in
+    // the specified range of items
+    for (var n = startIndex; n < endIndex; n++) {
+      var label = list[n].innerText;
+      if (label && label.toUpperCase().indexOf(this.keysSoFar) === 0) {
+        return list[n];
+      }
+    }
+    return null;
+  }
 }// end class
