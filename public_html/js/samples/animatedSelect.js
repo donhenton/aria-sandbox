@@ -7,7 +7,6 @@
       this.animatedList = new AnimatedList(this.selectBox.querySelector('ul.source-selector'))
       this.button = elem.querySelector('button');
       this.stage = elem.querySelector('.select-stage');
-      console.log(this.animatedList.listBox.classList)
       this.button.addEventListener('click', this.showListbox.bind(this));
       this.stage.addEventListener('transitionend', this.stageListener.bind(this));
       this.done = false;
@@ -16,9 +15,16 @@
 
     }
     stageListener(ev) {
-      this.endCounter++;
+      
+      
+      let isStage = Array.from(ev.srcElement.classList).includes('select-stage');
+      if (isStage === true) {
+        this.endCounter++;
+      }
+      
+     // console.log(`isStage ${isStage} done ${this.done} counter ${this.endCounter} prop ${ev.propertyName}`)
       let me = this;
-      if (this.endCounter === 4) {
+      if (isStage && this.endCounter === 5 && this.done === true) {
         this.animatedList.listBox.classList.add('completed');
         window.setTimeout(() => {
           this.animatedList.listBox.classList.add('vis');
@@ -26,6 +32,12 @@
         }, 15);
         this.endCounter = 0;
       }
+      if (isStage && this.endCounter === 5 && this.done === false) {
+         this.animatedList.listBox.classList.remove('vis');
+         this.animatedList.listBox.classList.remove('completed');
+        this.endCounter = 0;
+      }
+      
       console.log(ev)
     }
     showListbox(ev) {
@@ -34,8 +46,7 @@
       this.animating = true;
 
       if (this.done) {
-        this.animatedList.listBox.classList.remove('vis');
-        this.animatedList.listBox.classList.remove('completed');
+      
          window.setTimeout(() => {
            this.stage.classList.remove('completed')
          }, 15)
