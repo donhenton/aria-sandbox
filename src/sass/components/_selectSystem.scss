@@ -1,0 +1,98 @@
+.select-system {
+    $dropdown-width: 200px;
+     position:relative;
+    
+    button {
+        
+        &.dropdown-button {
+            position: absolute;
+            border-radius: 0;
+            font-size: 16px;
+            text-align: left;
+            padding: 5px 10px;
+            width: $dropdown-width;   
+            height: 30px;
+            left: 0px;
+            top: 0px;
+            z-index:1;
+
+
+            &::after {
+                width: 0;
+                height: 0;
+                border-left: 8px solid transparent;
+                border-right: 8px solid transparent;
+                border-top: 8px solid #aaa;
+                content: " ";
+                position: absolute;
+                right: 5px;
+                top: 10px;
+            }
+
+            &[aria-expanded="true"]::after {
+                width: 0;
+                height: 0;
+                border-left: 8px solid transparent;
+                border-right: 8px solid transparent;
+                border-top: 0;
+                border-bottom: 8px solid #aaa;
+                content: " ";
+                position: absolute;
+                right: 5px;
+                top: 10px;
+            }
+
+        }
+    }
+
+    
+    
+    
+    ul {
+        border: thin solid $blue-color;
+        background-color: $white-color;
+        position: absolute;   
+        opacity: 0;
+        top: 20px;
+        //left:  ($dropdown-width - 20px)/2;
+        width: 20px;
+       // overflow: auto;
+        height: 20px;
+       // transition: width .4s, height .4s, opacity .4s, left .4s, top .4s;
+        transition: all .6s;
+        
+        &.completed {
+            height: 170px ;
+            left: 0px;
+            top:0px;
+            z-index: 5;
+            opacity: 1;
+            width: $dropdown-width;
+        }
+      
+       
+         display: table;
+        li {
+            display: table-row;
+
+            height: 40px;
+            border-bottom:1px solid $blue-color;
+
+        }
+    }
+
+    .source-icon {
+        width:30%;
+        text-align: center;
+        display: table-cell;
+        padding-top: 10px;
+    }
+
+     .source-text {
+        width:70%;
+        
+        display: table-cell;
+    }
+
+
+}

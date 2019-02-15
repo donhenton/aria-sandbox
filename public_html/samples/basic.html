@@ -56,7 +56,7 @@
                                         <input type="checkbox" id="fifty" value="50" name="donation" >
 
 
-                                        <label id=one_hundred_label" for="one-hundred">$100</label> 
+                                        <label id="one_hundred_label" for="one-hundred">$100</label> 
                                         <input type="checkbox" id="one-hundred" value="100" name="donation" >
 
 
@@ -71,53 +71,78 @@
                                 <th> <label for="subscription">Subscription</label> </th>
                                 <td>
                                     <select id="subscription" name="subscription">
-                                        
+
                                         <option value="nytimes">NY Times</option>
                                         <option value="wapo">Washington Post</option>
                                         <option value="latimes">Los Angeles Times</option>
                                         <option value="nypost">NY Post</option>
-                                        
-                                        
+
+
                                     </select>
-                                        
-                                     
+
+
                                 </td>
 
                             </tr>
-                            
-                            
-                             <tr>
-                                <th> <label for="subscription">Source</label> </th>
+
+
+                            <tr>
+                                <th> <label id='payment-label' for="subscription">Payment Method</label> </th>
                                 <td>
-                                    <ul class="source-selector">
-                                        <li><span class="source-icon fa fa-credit-card"></span><span class="source-text">MasterCard</span></li>
-                                         <li><span class="source-icon fa fa-credit-card-alt"></span><span class="source-text">Visa</span></li>
-                                        <li><span class="source-icon fa fa-paypal"></span><span class="source-text">PayPal</span></li>
-                                       <li><span class="source-icon fa fa-amazon"></span><span class="source-text">Amazon</span></li>
-                                        
-                                        
-                                    </ul>
-                                        
-                                     
+
+                                    <div class="select-system">
+                                          <button  aria-haspopup="listbox" aria-labelledby="payment-label list-button" id="list_button" class="dropdown-button"></button>
+                                        <ul class="source-selector">
+                                            <li><span class="source-icon fa fa-credit-card"></span><span class="source-text">MasterCard</span></li>
+                                            <li><span class="source-icon fa fa-credit-card-alt"></span><span class="source-text">Visa</span></li>
+                                            <li><span class="source-icon fa fa-paypal"></span><span class="source-text">PayPal</span></li>
+                                            <li><span class="source-icon fa fa-amazon"></span><span class="source-text">Amazon</span></li>
+
+                                        </ul>
+
+                                    </div> 
+                                   
                                 </td>
 
                             </tr>
-                            
-                            
-                            
-                             <tr>
-                                 <td colspan="2"><input type="submit" class="btn btn-primary" value="Submit"> </td>
-                        </tr>
+
+
+
+                            <tr>
+                                <td colspan="2"><input type="submit" class="btn btn-primary" value="Submit"> </td>
+                            </tr>
                         </table>
 
 
                     </form>
+                    
+                    <script>
+                        var done = false;
+                        function doIt() {
+                            
+                            
+                           let t = document.querySelector('ul.source-selector');
+                           if (done) {
+                               t.classList.remove('completed')
+                               done = false;
+                           } else {
+                               t.classList.add("completed")
+                               done = true;
+                           }
+                           
+                        }
+                        
+                        
+                        
+                    </script>
+
+ <button onclick='doIt()'>Do</button>
                 </div>
             </div>
 
 
 
-            
+
 
         </div>
 
