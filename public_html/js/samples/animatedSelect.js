@@ -38,7 +38,7 @@
         this.endCounter = 0;
       }
       
-      console.log(ev)
+      //console.log(ev)
     }
     showListbox(ev) {
 
