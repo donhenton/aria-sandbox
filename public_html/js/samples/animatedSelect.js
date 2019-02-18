@@ -61,24 +61,7 @@
   }
 
 
-  /*
-   * 
-   * 
-   * ANIMATED LIST CLASS
-   * 
-   * 
-   */
-
-
-
-
-
-  class AnimatedList {
-    constructor(elem) {
-      this.listBox = elem;
-    }
-  }
-
+ 
 
 
 

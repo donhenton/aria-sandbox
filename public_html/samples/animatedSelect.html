@@ -36,7 +36,7 @@
                                 <td>
                                     <fieldset id="party">
                                         <label for="democrat">Democrat</label> 
-                                        <input type="radio" id="democrat" value="Democrat" name="party" >
+                                        <input  type="radio" id="democrat" value="Democrat" name="party" >
 
 
                                         <label for="republican">Republican</label> 
@@ -53,15 +53,15 @@
                                 <td>
                                     <fieldset id="donation">
                                         <label id="fifty_label" for="fify">$50</label> 
-                                        <input type="checkbox" id="fifty" value="50" name="donation" >
+                                        <input title="Fifty Dollars" type="checkbox" id="fifty" value="50" name="donation">
 
 
                                         <label id="one_hundred_label" for="one-hundred">$100</label> 
-                                        <input type="checkbox" id="one-hundred" value="100" name="donation" >
+                                        <input title="One Hundred Dollars"  type="checkbox" id="one-hundred" value="100" name="donation">
 
 
                                         <label id="two_thousand_label" for="two-thousand">$2000</label> 
-                                        <input type="checkbox" id="two-thousand" value="2000" name="donation" >
+                                        <input title="Two Thousand Dollars" type="checkbox" id="two-thousand" value="2000" name="donation">
                                     </fieldset>
                                 </td>
 
@@ -75,10 +75,10 @@
                                         <button  aria-haspopup="listbox" aria-labelledby="payment-label list-button" id="list_button" class="dropdown-button"></button>
                                         <div class="select-stage">
                                             <ul class="source-selector">
-                                                <li><span class="source-icon fa fa-credit-card"></span><span class="source-text">MasterCard</span></li>
-                                                <li><span class="source-icon fa fa-credit-card-alt"></span><span class="source-text">Visa</span></li>
-                                                <li><span class="source-icon fa fa-paypal"></span><span class="source-text">PayPal</span></li>
-                                                <li><span class="source-icon fa fa-amazon"></span><span class="source-text">Amazon</span></li>
+                                                <li role="option"><span class="source-icon fa fa-credit-card"></span><span class="source-text">MasterCard</span></li>
+                                                <li role="option"><span class="source-icon fa fa-credit-card-alt"></span><span class="source-text">Visa</span></li>
+                                                <li role="option"><span class="source-icon fa fa-paypal"></span><span class="source-text">PayPal</span></li>
+                                                <li role="option"><span class="source-icon fa fa-amazon"></span><span class="source-text">Amazon</span></li>
 
                                             </ul>
                                         </div>
@@ -131,6 +131,9 @@
 
 
         </div>
+      
+        <script src="../js/samples/animatedList.js" type="text/javascript"></script>
+        
         <script src="../js/samples/animatedSelect.js" type="text/javascript"></script>
     </body>
 </html>
