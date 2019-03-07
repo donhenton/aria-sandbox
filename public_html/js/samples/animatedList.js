@@ -29,7 +29,7 @@ class AnimatedList {
     this.selectIndex = 0;
     let me = this;
     this.listItems.forEach((e, idx) => {
-      e.setAttribute('id', me.idxToid(idx));
+      e.setAttribute('id', me.idxToId(idx));
     })
 
 
