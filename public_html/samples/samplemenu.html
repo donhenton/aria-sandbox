@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+ https://codepen.io/grayghostvisuals/pen/ltjDa
+https://staff.washington.edu/tft/tests/menus/simplyaccessible/index.html
+
+
+-->
+<html>
+    <head>
+        <title>Sample Menu</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <link href="../css/main.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <div class="menu-holder"> 
+
+
+
+            <!-- Navigation -->
+                <nav class="sample-menu"  role="presentation" aria-label="Main menu">
+
+                <ul class="nav" role="menubar" aria-hidden="false">
+                    <li  role="menuitem" aria-haspopup="true">
+                        <a href="#about">About</a>
+                        <ul class="level-1"  role="menu">
+                            <li role="menuitem"><a href="#news" tabindex="-1">News</a></li>
+                            <li role="menuitem"><a href="#governance" tabindex="-1">Governance</a></li>
+                            <li role="menuitem"><a href="#diversity" tabindex="-1">Diversity</a></li>
+                            <li role="menuitem"><a href="#contact" tabindex="-1">Contact Us</a></li>
+                        </ul>
+                    </li>
+
+                    <li role="menuitem" aria-haspopup="true">
+                        <a href="#academics">Academics</a>
+                        <ul class="level-1"  role="menu"    >
+                            <li role="menuitem"><a href="#programs" tabindex="-1">Degree Programs</a></li>
+                            <li role="menuitem"><a href="#faculty" tabindex="-1">Faculty</a></li>
+                            <li role="menuitem"><a href="#distance" tabindex="-1">Distance Learning</a></li>
+                            <li role="menuitem"><a href="#libs" tabindex="-1">Libraries</a></li>
+                        </ul>
+                    </li>
+
+                    <li role="menuitem" aria-haspopup="true">
+                        <a href="#admissions">Admissions</a>
+                        <ul class="level-1"  role="menu" >
+                            <li role="menuitem"><a href="#undergraduate" tabindex="-1">Undergraduate</a></li>
+                            <li role="menuitem"><a href="#tuition" tabindex="-1">Tuition</a></li>
+                            <li role="menuitem"><a href="#financial-aid" tabindex="-1">Financial Aid</a></li>
+                        </ul>
+                    </li>
+
+                    <li role="menuitem" aria-haspopup="true">
+                        <a href="#visitors">Visitors</a>
+                        <ul class="level-1"  role="menu"  >
+                            <li role="menuitem"><a href="#events" tabindex="-1">Events</a></li>
+                            <li role="menuitem"><a href="#campus-map" tabindex="-1">Campus Map</a></li>
+                            <li role="menuitem"><a href="#parking" tabindex="-1">Parking</a></li>
+                        </ul>
+                    </li>
+                </ul>	
+            </nav>
+
+
+
+
+
+        </div>
+         <script src="../js/samples/samplemenu.js" type="text/javascript"></script> 
+    </body>
+</html>
