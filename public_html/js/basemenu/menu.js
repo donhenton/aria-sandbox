@@ -12,7 +12,7 @@ var keyCodeMap = {
         77:"m", 78:"n", 79:"o", 80:"p", 81:"q", 82:"r", 83:"s", 84:"t", 85:"u", 86:"v", 87:"w", 88:"x", 89:"y", 90:"z",
         96:"0", 97:"1", 98:"2", 99:"3", 100:"4", 101:"5", 102:"6", 103:"7", 104:"8", 105:"9"
 }
-
+console.log('ffdfdf')
 $.fn.setup_navigation = function(settings) {
 
 	settings = jQuery.extend({
